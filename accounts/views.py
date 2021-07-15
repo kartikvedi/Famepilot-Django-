@@ -46,6 +46,8 @@ def register(request):
                 dob=request.POST['dob'],
                 tel=request.POST['tel']
             )
+			messages.info(request,'user created'+str(us.username))
+            return redirect('login')
         except ValidationError  as e:
             messages.info(request,e)
         except :
