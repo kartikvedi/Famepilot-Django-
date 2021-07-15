@@ -18,13 +18,13 @@ import os
 # Create your views here.
 
 def authenticated_user(view_func):
-	def wrapper_func(request, *args, **kwargs):
-		if request.user.is_authenticated:
-			return redirect('dashboard')
-		else:
-			return view_func(request, *args, **kwargs)
+    def wrapper_func(request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('dashboard')
+        else:
+            return view_func(request, *args, **kwargs)
 
-	return wrapper_func
+    return wrapper_func
 
 @authenticated_user
 def homepage(request):
@@ -53,9 +53,6 @@ def register(request):
         except :
             messages.info(request,'User already exists/Enter correct details')
 
-
-    else :
-        messages.info(request,'something went wrong')
     return render(request,'register.html')
 
 @authenticated_user
