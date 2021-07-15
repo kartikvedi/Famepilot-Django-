@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<form class="flex" style="width:30%; margin-left:30%; margin-right:20%; margin-top:1%;" method="POST">
+    {% csrf_token %}
+    <div class="mb-3" >
+    <label  class="form-label">Username</label>
+    <input type="name" class="form-control" name="username" required="true">
+  </div>
+  <div class="mb-3" >
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" name="email" required="true">
+  </div>
+    <div class="mb-3" >
+    <label  class="form-label">Date of Birth</label>
+    <input type="date" class="form-control" name="dob" required="true">
+  </div>
+     <div class="mb-3" >
+    <label  class="form-label">Mobile Number</label>
+    <input type="tel" class="form-control" name="tel" required="true">
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" required="true">
+  </div>
+    <div class="mb-3">
+    <label  class="form-label">Password</label>
+    <input type="password" class="form-control" name="password2" required="true">
+  </div>
+<div><span>Already have an account? <a href="{% url 'login' %}">login</a></span></div>
+  <div style="margin-top:10px; margin-bottom:10px;"><button type="submit" class="btn btn-primary">Register</button></div>
+    {% for message in messages %}
+                                    <div class="alert alert-primary" role="alert">
+					                        <p id="messages">{{message}}</p>
+                                    </div>
+                                    {% endfor %}
+</form>
+{% endblock content %}

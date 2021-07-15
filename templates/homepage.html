@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Task1</h2>
+1. Implement a group_by_owners function that:
+<br>-- accepts a dict containing the file owner name for each file name.
+<br>-- Returns a dict containig a list of file names for each owner name, in any order.
+<br>For eg: {
+ 'Input.txt': 'Randy',
+ 'Code.py': 'Stan',
+ 'Output.txt': 'Randy'
+ }<br>
+the group_by_owners function should return {“randy”: [“input.txt”, “output.txt”], “stan”: [“code.py”]}
+<br>
+<h2>Task2</h2>
+3. Implement the function find_roots to find the roots of the quadratic equation: ax2 + bx + c = 0. The
+function should return a tuple containing roots in any order. If the equation has only one solution, the
+function should return that solution as both elements of the tuple. The equation will always have at least one
+solution.
+<br>
+The roots of the quadratic equation can be found with the following formula:<br>
+For example, find_roots(2, 10, 8) should return (-1, -4) or (-4, -1) as the roots of the equation 2x2 + 10x + 8
+= 0 are -1 and -4.
+<br>
+<h2>Task3</h2>
+2. create a django application having the functionality of register, login and logout and dashboard screen
+having profile information (name, email, date of birth, phone number). Connect the app with postgresql
+database. <br>Note: use serializer for filling up the information.
+<br>
+{% endblock content %}

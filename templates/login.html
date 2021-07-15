@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<form style="width:30%; margin-left:30%; margin-right:20%; margin-top:1%;" method="POST">
+    {% csrf_token %}
+    <div class="mb-3" >
+    <label  class="form-label">Username</label>
+    <input type="name" class="form-control" name="username" required="true">
+  </div>
+    <div class="mb-3">
+    <label  class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" required="true">
+  </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+   <div style="margin-top:10px;"><span>Don't have an account?<a href="{% url 'register' %}">register</a></span></div>
+    {% for message in messages %}
+                                    <div class="alert alert-primary" role="alert">
+					                        <p id="messages">{{message}}</p>
+                                    </div>
+    {% endfor %}
+</form>
+{% endblock content %}

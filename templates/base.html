@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Famepilot Sricharan Assignment</title>
+     <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+    </script>
+    <script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+    </script>
+    <style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+</style>
+    {% block extra_script %}
+    {% endblock extra_script %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+  <div class="container-fluid" style="margin-right:60px;">
+    <a class="navbar-brand" href="{% url 'homepage' %}">Famepilot Sricharan Assignment</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent"  >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'task1' %}" style="font-weight:bold;">Task 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'task2' %}" style="font-weight:bold;">Task 2</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight:bold;">
+            Task 3
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown" style="text-align:left; width:auto;">
+
+
+              {% if request.user.is_authenticated %}
+              <li><a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+              {% else %}
+               <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
+            <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+              {% endif %}
+
+          </ul>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div style="margin-bottom:10px;">
+{% block content %}
+{% endblock content %}
+    </div>
+<footer >
+    <div class="container my-auto">
+        <div class="text-center my-auto copyright"><span style="font-size:15px">Made with ❤ by <a href="http://vodnalasricharan.github.io/" target="_blank" onMouseOver="this.style.color='blue'" onMouseOut="this.style.color='#000'" style="text-decoration:none;color:black;">Sricharan </a>  </span></div>
+
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>

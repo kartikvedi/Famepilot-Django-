@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="margin-left:10%;">Dashboard</h1>
+<div class="card w-75" style="width:50%; margin-left:10%;margin-right:20%;">
+  <div class="card-body">
+    <h5 class="card-title">{{ account.user.username }}</h5>
+    <p class="card-text">{{ account.user.email }}</p>
+      <p class="card-text">{{ snippet.dob }}</p>
+       <p class="card-text">{{ snippet.tel }}</p>
+  </div>
+</div>
+</div>
+{% endblock content %}
